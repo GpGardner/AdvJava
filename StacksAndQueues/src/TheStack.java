@@ -75,6 +75,33 @@ public class TheStack {
 
 	}
 
+	public void pushMany(String values) {
+
+		String[] tempString = values.split(",");
+
+		for (int i = 0; i < tempString.length; i++) {
+
+			push(tempString[i]);
+
+		}
+
+	}
+
+	public void clearStack(){
+
+		
+		for (int i = topOfStack; i >= 0 ; i--) {
+			
+			System.out.println("\n Top of Stack: " + topOfStack);
+
+			pop();
+
+		}
+
+		displayTheStack();
+
+	}
+
 	public void displayTheStack() {
 
 		for (int n = 0; n < 61; n++)
@@ -113,17 +140,7 @@ public class TheStack {
 
 	}
 
-	public void pushMany(String values) {
-
-		String[] tempString = values.split(",");
-
-		for (int i = 0; i < tempString.length; i++) {
-
-			push(tempString[i]);
-
-		}
-
-	}
+	
 
 	// Main Method
 	public static void main(String[] args) {
@@ -131,12 +148,12 @@ public class TheStack {
 		TheStack stack = new TheStack(8);
 
 		stack.pushMany("15,16,12,13,15,22,52,76,1,12,14,15");
-		stack.pop();
-		stack.pop();
-		stack.pop();
-		stack.peek();
-		stack.pop();
-		stack.displayTheStack();
+		// stack.pop();
+		// stack.pop();
+		// stack.pop();
+		// stack.peek();
+		// stack.displayTheStack();
+		stack.clearStack();
 
 	}
 }
