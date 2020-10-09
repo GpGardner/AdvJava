@@ -89,16 +89,38 @@ public class TheStack {
 
 	public void clearStack(){
 
+
 		
 		for (int i = topOfStack; i >= 0 ; i--) {
 			
-			System.out.println("\n Top of Stack: " + topOfStack);
+			System.out.println("\n Top of Stack: " + topOfStack+ "\n Value: "+stackArray[i]);
 
 			pop();
 
 		}
 
-		displayTheStack();
+		System.out.println("Stack is now empty.");
+
+	}
+
+	public void replaceValues(String value, String replacement){
+		int currentPosition = topOfStack;
+
+		System.out.println("\nReplacing: "+value+" with "+replacement);
+
+		for (int i = topOfStack; i >= 0; i--) {
+
+			
+			if(stackArray[i].equals(value)){
+				
+				System.out.println("Found "+value+" at position "+currentPosition);
+				
+				stackArray[i] = replacement;
+				
+			}
+			currentPosition--;
+
+		}
 
 	}
 
@@ -148,6 +170,8 @@ public class TheStack {
 		TheStack stack = new TheStack(8);
 
 		stack.pushMany("15,16,12,13,15,22,52,76,1,12,14,15");
+
+		stack.replaceValues("15", "02");
 		// stack.pop();
 		// stack.pop();
 		// stack.pop();
