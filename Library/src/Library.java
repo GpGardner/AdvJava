@@ -43,8 +43,20 @@ public class Library {
 				return recipt;
 			}
 		}
-		return "\nSorry that book isn't available right now.";
-		
+		return "\nSorry that book isn't available right now.";		
+	}
+
+	public String returnBook(Book book, Customer customer){
+		if(!customer.rentedBooks.contains(book)){
+			return "\nYou don't have that book rented!";
+		}
+
+		currentlyAvailableBooks.add(book);
+		customer.rentedBooks.remove(book);
+		String recipt = String.format("\n%s has been successfully returned", book.getTitle());
+
+		return recipt;
+
 	}
 
 	public String getAddress() {
