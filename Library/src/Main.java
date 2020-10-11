@@ -5,6 +5,7 @@ public class Main {
 		Library libraryOne = new Library("123 Main Street", "Monday through Friday 9a to 5pm");
 		Library libraryTwo = new Library("456 Orchard Way", "Monday through Friday 9a to 5pm");
 		Customer customerOne = new Customer("George Gardner");
+		Customer customerTwo = new Customer("Tia Fischl");
 
 		System.out.println("\n"+libraryOne.getAddress()+ " " +libraryOne.getHours());
 		System.out.println("\n"+libraryTwo.getAddress()+ " " +libraryTwo.getHours());
@@ -27,6 +28,8 @@ public class Main {
 		customerOne.rentBook(bookTwo, libraryOne);
 		customerOne.getRentedBooks();
 		libraryOne.getBooks();
+		System.out.println(customerOne.returnBook(bookOne, libraryOne));
+		System.out.println(customerTwo.returnBook(bookTwo, libraryTwo));
 
 				
 
