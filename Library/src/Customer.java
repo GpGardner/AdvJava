@@ -29,7 +29,11 @@ public class Customer {
 
 	public void rentBook(Book book, Library library){
 		library.rentBook(book.getId(), this);
-		System.out.printf("%s: has been successfully rented", book.getTitle());
+		System.out.printf("\n%s: has been successfully rented\n", book.getTitle());
+	}
+
+	public String returnBook(Book book, Library library){
+		return library.returnBook(book, this);
 	}
 
 
