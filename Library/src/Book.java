@@ -53,15 +53,16 @@ public class Book {
 	// this.id = id;
 	// }
 
+	// + "\nRental Status: Currently Rented\n"
+	// "\nRental Status: Currently Available\n"
+
 	@Override
 	public String toString() {
 		String book;
 		if (this.rented == true) {
-			book = String.format("\nTitle: " + getTitle() + "\nPages: " + getPages() + "\nRental Status: Currently Rented\n");
+			book = String.format("\nTitle: %s\nPages: %s", getTitle(), getPages());
 		} else {
-			book = String
-					.format("\nTitle: " + getTitle() + "\nPages: " + getPages() + "\nRental Status: Currently Available\n");
-
+		  book = String.format("\nTitle: %s\nPages: %s", getTitle(), getPages());
 		}
 
 		return book;
