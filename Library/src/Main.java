@@ -4,6 +4,7 @@ public class Main {
 
 		Library libraryOne = new Library("123 Main Street", "Monday through Friday 9a to 5pm");
 		Library libraryTwo = new Library("456 Orchard Way", "Monday through Friday 9a to 5pm");
+		Customer customerOne = new Customer("George Gardner");
 
 		System.out.println("\n"+libraryOne.getAddress()+ " " +libraryOne.getHours());
 		System.out.println("\n"+libraryTwo.getAddress()+ " " +libraryTwo.getHours());
@@ -12,6 +13,8 @@ public class Main {
 		Book bookThree = new Book("Harry Potter3", 200);
 		Book bookFour = new Book("Harry Potter4", 600);
 		Book bookFive = new Book("Harry Potter5", 800);
+
+		customerOne.getRentedBooks();
 		
 
 		System.out.println(libraryOne.addBook(bookOne));
@@ -20,9 +23,9 @@ public class Main {
 		System.out.println(libraryOne.addBook(bookFour));
 		System.out.println(libraryOne.addBook(bookFive));
 		libraryOne.getBooks();
-		System.out.println(libraryOne.rentBook(bookOne.getId()));
-		System.out.println(libraryOne.rentBook(bookTwo.getId()));
-		System.out.println(libraryOne.rentBook(bookOne.getId()));
+		customerOne.rentBook(bookOne, libraryOne);
+		customerOne.rentBook(bookTwo, libraryOne);
+		customerOne.getRentedBooks();
 		libraryOne.getBooks();
 
 				
