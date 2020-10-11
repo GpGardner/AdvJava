@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Library {
 
 	
-	private ArrayList<Book> books = new ArrayList<>();
+	private ArrayList<Book> books = new ArrayList<Book>();
 	private String address;
 	private String hours;
 	
@@ -12,27 +13,37 @@ public class Library {
 		this.hours = hours;
 	}
 
-	public String getBooks() {
-		for (Book book : books) {
-			return book.toString();
+	public void getBooks() {
+		if (books.size() > 0) {
+			System.out.println("\nHere is our current selection: \n");
+			books.forEach((book) -> {
+				if(!book.getRented()){
+					System.out.println(book.getTitle());
+				}
+			});
+		} else {
+			System.out.println("No books available");
 		}
-
-		return "No books currently available";
+		
 	}
 
-	public String addBooks(Book book) {
+	public String addBook(Book book) {
 		books.add(book);
-		// String newBook = String.format("Book: %s, has been added", book.getTitle());
-		return "Book Added";
+		final String recipt = String.format("\n%s\nHas been successfully added\nCurrent Stock: %s", book.toString(), books.size());
+		return recipt;
 	}
 
-	public int rentBook(Book book) {
-
-		if(books.contains(book)){
-			return 0;
+	public String rentBook(UUID rentalBook) {
+		
+		for (int i = 0; i < books.size(); i++) {
+			Book book = books.get(i);
+			if(book.getId() == rentalBook && !book.getRented()){
+				book.setRented(true);
+				final String recipt = String.format("\n%s\nHas been successfully rented!", book.toString());
+				return recipt;
+			}
 		}
-
-		return 0;
+		return "\nSorry that book isn't available right now.";
 		
 	}
 
