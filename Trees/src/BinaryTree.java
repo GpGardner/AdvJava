@@ -45,4 +45,29 @@ public class BinaryTree {
 			preOrderTraverseTree(focusNode.right);
 		}
 	}
+
+	public void postOrderTraverseTree(Node focusNode){
+		if (focusNode != null) {
+			postOrderTraverseTree(focusNode.left);
+			postOrderTraverseTree(focusNode.right);
+			System.out.println(focusNode);
+		}
+	}
+
+	public Node findNode(int key){
+		Node focusNode = root;
+		while(focusNode.key != key){
+			if(key < focusNode.key){
+				focusNode = focusNode.left;
+			}else {
+				focusNode = focusNode.right;
+			}
+
+			if(focusNode == null){
+				return null;
+			}
+		}
+
+		return focusNode;
+	}
 }
