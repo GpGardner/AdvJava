@@ -11,6 +11,10 @@ public class Main {
 		tree.addNode(10, "d");
 		tree.addNode(1, "a");
 
-		tree.preOrderTraverseTree(tree.root);
+		tree.postOrderTraverseTree(tree.root);
+
+		System.out.println("Search for 3");
+
+		System.out.println(tree.findNode(5));
 	}
 }
