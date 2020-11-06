@@ -1,6 +1,6 @@
 //Mock ContactListServiceClass
 
-public class MyApplication {
+public class BadMyApplication {
 
 	/**
 	 * Testing the application will be very difficult since our application is 
